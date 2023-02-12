@@ -1,15 +1,17 @@
 <template>
-  <div v-if="error">
+  <div class="home">
+      <div v-if="error">
     {{error}}
-  </div>
-  <div v-else>
-    <h1>Post Detail</h1>
-    <div v-if="post">
-        <h3>{{post.title}}</h3>
-        <p>{{post.body}}</p>
     </div>
     <div v-else>
-        <Spinner></Spinner>
+      <h1>Post Detail</h1>
+      <div v-if="post">
+          <h3>{{post.title}}</h3>
+          <p>{{post.body}}</p>
+      </div>
+      <div v-else>
+          <Spinner></Spinner>
+      </div>
     </div>
   </div>
 

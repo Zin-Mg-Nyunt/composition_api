@@ -1,6 +1,6 @@
 <template>
   <h1>Create Post</h1>
-  <form>
+  <form @submit.prevent="addPost">
     <label>Title</label>
     <input type="text" required v-model="title">
 
@@ -8,7 +8,7 @@
     <textarea rows="5" required v-model="body"></textarea>
 
     <label>Tags</label>
-    <input type="text" required v-model="tag" @keydown.enter.prevent="handleKyeUp">
+    <input type="text" v-model="tag" @keydown.enter.prevent="handleKyeUp">
     <div>
       <div v-for="tag in tags" :key="tag" class="pill">
         {{tag}}
@@ -33,8 +33,20 @@ export default {
             }
             tag.value=""
         }
-
-        return {title,body,tag,handleKyeUp,tags}
+        let addPost=async()=>{
+            await fetch("http://localhost:3000/posts",{
+                method : "POST",
+                headers : {
+                    'Content-Type': 'application/json',
+                },
+                body : JSON.stringify({
+                    title : title.value,
+                    body : body.value,
+                    tags : tags.value
+                })
+            })
+        }
+        return {title,body,tag,handleKyeUp,tags,addPost}
     }
 }
 </script>
@@ -58,7 +70,7 @@ export default {
         width: 100%;
         font-size: 1.2rem;
         padding: .6rem;
-        border: 1px solid black;
+        border: 1px solid #9c9c9c;
         border-radius: .7rem;
         margin: .3rem 0 1rem;
     }
@@ -68,11 +80,11 @@ export default {
     }
     .pill{
         display: inline-block;
-        padding: 1rem;
+        padding: .7rem;
         border-radius: 40px;
         background-color: #b1b1b1;
         color: #f7f5f5;
-        font-size: 1.2rem;
+        /* font-size: 1.2rem; */
         margin: .5rem;
         margin-left: 0;
     }

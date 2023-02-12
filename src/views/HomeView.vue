@@ -1,12 +1,14 @@
 <template>
-  <div v-if="error">
+  <div class="home">
+    <div v-if="error">
     {{error}}
-  </div>
-  <div v-if="posts.length>0">
-    <PostList :posts="posts"></PostList>
-  </div>
-  <div v-else>
-    <Spinner></Spinner>
+    </div>
+    <div v-if="posts.length>0">
+      <PostList :posts="posts"></PostList>
+    </div>
+    <div v-else>
+      <Spinner></Spinner>
+    </div>
   </div>
 </template>
 
@@ -28,5 +30,11 @@ export default {
 </script>
 
 <style>
-
+  .home{
+    max-width: 1200px;
+    margin: 10px auto;
+  }
+  .home h1{
+    text-align: center;
+  }
 </style>
