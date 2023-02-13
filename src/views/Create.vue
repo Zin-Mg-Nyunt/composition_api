@@ -8,7 +8,7 @@
     <textarea rows="5" required v-model="body"></textarea>
 
     <label>Tags</label>
-    <input type="text" v-model="tag" @keydown.enter.prevent="handleKyeUp">
+    <input type="text" v-model="tag" @keydown.enter.prevent="handleKeyUp">
     <div>
       <div v-for="tag in tags" :key="tag" class="pill">
         {{tag}}
@@ -27,8 +27,8 @@ export default {
         let body = ref("");
         let tag = ref("");
         let tags = ref([])
-        let handleKyeUp=()=>{
-            if(!tags.value.includes(tag.value)){
+        let handleKeyUp=()=>{
+            if(!tags.value.includes(tag.value) && !tag.value==""){
                 tags.value.push(tag.value)
             }
             tag.value=""
@@ -46,12 +46,15 @@ export default {
                 })
             })
         }
-        return {title,body,tag,handleKyeUp,tags,addPost}
+        return {title,body,tag,handleKeyUp,tags,addPost}
     }
 }
 </script>
 
 <style>
+    h1{
+        text-align: center;
+    }
     form{
         display: block;
         max-width: 400px;
