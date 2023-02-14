@@ -4,7 +4,7 @@
   </router-link>
   <p>{{cutPostBody}}</p>
   <div v-for="tag in post.tags" :key="tag" class="pill">
-    {{tag}}
+    <router-link :to="{name: 'tag', params: {tag}}">{{tag}}</router-link>
   </div>
   <div class="divider"></div>
 </template>
@@ -45,5 +45,8 @@ export default {
   .divider{
     width: 100%;
     border: 1px solid #ebebeb;
+  }
+  a{
+    text-decoration: none;
   }
 </style>

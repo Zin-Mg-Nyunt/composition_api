@@ -1,7 +1,9 @@
 <template>
-  <h1>Post List</h1>
-  <div v-for="post in posts" :key="post.id">
-    <SinglePost :post="post"></SinglePost>
+  <div class="home">
+    <h1>Post List</h1>
+    <div v-for="post in posts" :key="post.id">
+      <SinglePost :post="post"></SinglePost>
+    </div>
   </div>
 </template>
 

@@ -1,62 +1,38 @@
 {
   "posts": [
     {
-      "title": "Post Title 1",
-      "body": "Post Body 1",
+      "title": "PHP",
+      "body": "php",
+      "tags": [
+        "php",
+        "web dev"
+      ],
       "id": 1
     },
     {
-      "title": "Post Title 2",
-      "body": "Post Body 2",
+      "title": "Vuejs",
+      "body": "vuejs",
+      "tags": [
+        "vuejs"
+      ],
       "id": 2
     },
     {
-      "title": "Post Title 3",
-      "body": "Post Body 3",
+      "title": "JavaScript",
+      "body": "javascript",
+      "tags": [
+        "JavaScript"
+      ],
       "id": 3
     },
     {
-      "title": "Post Title 4",
-      "body": "Post Body",
+      "title": "Laravel",
+      "body": "laravel",
       "tags": [
-        "html",
-        "css",
-        "vuejs"
+        "laravel",
+        "web dev"
       ],
       "id": 4
-    },
-    {
-      "title": "ghr",
-      "body": "hogr",
-      "tags": [
-        "css",
-        "html"
-      ],
-      "id": 5
-    },
-    {
-      "title": "Valentine Day",
-      "body": "today",
-      "tags": [
-        "css"
-      ],
-      "id": 6
-    },
-    {
-      "title": "jhf",
-      "body": "fhfhj",
-      "tags": [
-        "fgh"
-      ],
-      "id": 7
-    },
-    {
-      "title": "testing",
-      "body": "testing body",
-      "tags": [
-        "html"
-      ],
-      "id": 8
     }
   ]
 }
