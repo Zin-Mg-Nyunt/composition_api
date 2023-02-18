@@ -15,5 +15,7 @@ firebase.initializeApp(firebaseConfig);
 
 // database setup
 let db = firebase.firestore();
+let timeStamp = firebase.firestore.FieldValue.serverTimestamp
+// firebase.firestore.FieldValue.serverTimestamp အဲ့ကောင်က function တစ်ခုကို return ပြန်ပေးတယ် အဲ့တာကို timeStam ထဲမှာသိမ်းထားတာ (firebase က လုပ်ပေးတဲ့ function)
 
-export {db}
+export {db,timeStamp}
