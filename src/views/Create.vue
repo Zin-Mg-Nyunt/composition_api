@@ -22,6 +22,7 @@
 <script>
 import { ref } from '@vue/reactivity';
 import { useRouter } from "vue-router";
+import { db } from '@/firebase/config';
 export default {
     setup(){
         let router = useRouter();
@@ -36,17 +37,14 @@ export default {
             tag.value=""
         }
         let addPost=async()=>{
-            await fetch("http://localhost:3000/posts",{
-                method : "POST",
-                headers : {
-                    'Content-Type': 'application/json',
-                },
-                body : JSON.stringify({
+            let newPost = {
                     title : title.value,
                     body : body.value,
                     tags : tags.value
-                })
-            })
+                };
+            // add ကနေပြီးတော့ return ပြန်လာတာက post အသစ်ရဲ့ id အဲ့တာကို res ထဲမှာသိမ်းထား
+            let res = await db.collection("posts").add(newPost);
+            
             // redirect to home page by using useRouter
             // this.$router.push("/")
             router.push("/")
